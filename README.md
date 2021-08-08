@@ -7,7 +7,7 @@ General Instructions
 --------------------
 
 * You have roughly 63 hours (3 evenings and 2 days) to complete this challenge. We give you this amount of time so that you can fit it with the rest of your life. We think that it's possible to build a solution in about two evenings.  
-* Write your solution preferably in JavaScript, Typescript, Java, Kotlin. If you are more comfortable in some other language, check with us first.
+* Write your solution preferably in JavaScript, Typescript, Java, or Kotlin. If you are more comfortable in some other language, check with us first.
 * Deliver a runnable solution that includes only source code, test code, build scripts and instructions. Please no IDE or build artefacts.
 * Solutions can be server-side, client-side, or a combination of both.
 * Only use dependencies if you can defend what value they bring to the problem at hand
@@ -17,10 +17,10 @@ General Instructions
 ### What is Provided
 
 * Copies of the `Artist.json` and `Artwork.json` files from [MoMa Collection](https://github.com/MuseumofModernArt/collection)
-* Some code that you may want to use
+* Some code that you may want to use:
     * life-cycle scripts (in `./db/package.json`) to start/stop/load the database
-    * A `./db/load.js` to load the data into an instance of pouchDb
-    * A stubbed-out Kotlin client (in `./kotlin-client`) that connects to the database using the cloudant client.
+    * A `./db/load.js` to load the data into the provided database
+    * A stubbed-out Kotlin client (in `./kotlin-client`) that connects to the provided database.
       
 #### To use the provided database
 * node 16
@@ -33,7 +33,7 @@ General Instructions
 * * access to the internet
 
 
-A Choice from Three Tasks
+Choose One of Three Tasks
 -------------------------
 Below are three assignments. Implement **ONLY ONE** of them. They can all be implemented as a pure backend or a pure frontend solution. Your
 approach will depend on the role you are applying for.
@@ -52,27 +52,27 @@ Take a look here if you need inspiration: https://fivethirtyeight.com/features/a
 
 ### 3. The Data Grid
 
-Process the one or both files to produce a table with sorting, filtering, and paging. Ideally this table provides good user experience and be responsive. You can also consider combining the two data sets into a master/detail tool that allows navigating between a list of artists and the list of their artworks. 
+Access data from one or both files to produce a table with sorting, filtering, and paging. Ideally this table provides a good user experience and is responsive. Combine the two data sets into a master/detail view that allows navigating between the list of artists and the list of their artworks. 
 
 
 How We Evaluate
 ---------------
 
-Remember that even if you could solve most of the problems above with third party libraries and a few lines of code we are asking you to do this to see a demonstration of your skills. This does not mean that you should build everything from scratch or write 1000s of lines of code. Here are some pointers on what we are looking for. 
+Remember that even if you could solve most of the problems above with third party libraries and a few lines of code we are asking you to demonstrate your programming skills. This does not mean that you should build everything from scratch and write 1000s of lines of code. Here are some pointers on what we will pay attention to. 
 
-* We want to see how you approach software development
-* We want to see how you solve problems
-* We will likely use this coding assignment as a discussion piece in later parts of the interview process
-* Performance: Considering the amount of time allotted we will not be too critical of performance issues. That said there should not be rudimentary issues. If your solution works best with a sub-set of the data than make sure to provide instructions on how many artists we should set up the system with.
+* We want to see how you approach software programming.
+* We want to see how you solve problems.
+* Performance: Considering the amount of time allotted we will not be too critical of performance issues. That said there should not be any rudimentary issues. If your solution works best with a sub-set of the data than make sure to provide scripts and instructions to set things up correctly.
 * Some important things we will look at:
-  * Are we able to build and run the solution easily
-  * Are there any bugs
-  * How appropriate and complete the solution is compared to the problem undertaken.
-  * User experience (When it applies)
-  * Code organisation, style, attention to readability, etc.
-  * Understanding of core and foundational technologies
-  * Idiomatic approach to the chosen language and/or technologies 
-  * Any supporting documentation, tests,
+    * Are we able to build and run the solution easily
+    * Are there any bugs
+    * How appropriate and complete the solution is compared to the task chosen.
+    * User experience (Where it applies)
+    * Code organisation, style, attention to readability, etc.
+    * Understanding of core and foundational technologies
+    * Idiomatic approach to the chosen language and/or technologies 
+    * Any supporting documentation, tests,
+* We will likely use this coding assignment as a discussion piece in later parts of the interview process.
 
 Using PouchDb to Access Data
 ------------------
@@ -185,4 +185,4 @@ cd kotlin-client
 gradle app:run 
 
 ```
-Running the above once the db is running should compile and run the code. The output of a find by ID and a query should output in the console.
+Running the above once the db is up should compile and run and output to the console the result of a find-by-id request and a query.
