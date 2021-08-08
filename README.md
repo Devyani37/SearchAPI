@@ -185,3 +185,4 @@ cd kotlin-client
 gradle app:run 
 
 ```
+Running the above once the db is running should compile and run the code. The output of a find by ID and a query should output in the console.
