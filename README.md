@@ -20,9 +20,10 @@ General Instructions
 * Some code that you may want to use:
     * life-cycle scripts (in `./db/package.json`) to start/stop/load the database
     * A `./db/load.js` to load the data into the provided database
-    * A stubbed-out Kotlin client (in `./kotlin-client`) that connects to the provided database.
+    * A Kotlin starter client (in `./kotlin-client`) that connects to the provided database.
+    * A Javascript starter client (in `./js-client`) that connects to the provided database.
       
-#### To use the provided database
+#### To use the provided database & JS client
 * node 16
 * access to the internet
 
@@ -30,7 +31,7 @@ General Instructions
 * Java 16
 * gradle 7
 * Kotlin 1.4
-* * access to the internet
+* access to the internet
 
 
 Choose One of Three Tasks
@@ -103,7 +104,7 @@ npm run load-data -- --max-artists=300
 You can run this command without restarting the database process. But note that `load-data` will remove and replace any data in the `artists` and `artworks`
 with a fresh copy of the source data.
 
-Use the following command to stop and remove everything:
+Use the following command to stop and remove the database:
 ```shell
 npm run destroy
 ```
@@ -128,7 +129,7 @@ Although you don't really need a client here are some links.
 * [Python](https://pycouchdb.readthedocs.io/en/latest/)
 * [IBM Cloudant Java Client](https://github.com/cloudant/java-cloudant) (Cloudant's API is a commercial offering from IBM with a compatible api). Cloudant also manages a set of clients which are all being re-written at the moment: https://blog.cloudant.com/2021/06/30/Cloudant-SDK-Transition.html#summary-of-sdk-changes 
 
-You can also take a look at `load.js` for a simple example. It's the little piece of code that loads the artist and artwork files. It employs the nano client. 
+Take a look at the JS You can also take a look at `load.js` for a simple example. It's the little piece of code that loads the artist and artwork files. It employs the nano client. 
 
 ### Using JSON over HTTP
 The CouchDB api for querying the store is based on a JSON-over-HTTP protocol. It is very well documented and easy to use without a  custom client. A good HTTP library may be all you really need. Note that the query language is a close relative of the MongoDB query language. Although there are other ways to query in PouchDB, this is probably the easiest approach.
@@ -175,14 +176,22 @@ Here is the JSON document from above:
 }
 ```
      
-Using the Kotlin Client
+Using the demo clients
 -----------------------
 
-The simple kotlin client is written using the IBM cloudant client. Cloudant DB implements the CouchDB API, so it's compatible with CouchDb and therefore with PouchDb.                
-
+The simple kotlin and JavaScript client are provided. Start the database before running these clients.
+                     
+The Kotlin client:
 ```shell
 cd kotlin-client
 gradle app:run 
 
 ```
-Running the above once the db is up should compile and run and output to the console the result of a find-by-id request and a query.
+
+The JavaScript client:
+```shell
+cd js-client
+npm ci
+npm start
+
+```
