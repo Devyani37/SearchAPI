@@ -1,16 +1,16 @@
 Recruitment Coding Assignment
 =============================
 
-This is coding assignment used in the recruitment process at MYARTBANK. It centers around processing artist and artwork data for different purposes.
+This is coding assignment used in the recruitment process at MYARTBANK. It involves processing artist and artwork datasets.
 
 General Instructions
 --------------------
 
-* You have roughly 63 hours (3 evenings and 2 days) to complete this challenge. We give you this amount of time so that you can fit it with the rest of your life. We think that it's possible to build a solution in about two evenings.  
+* You have roughly 72 hours (3 days) to complete this challenge. We give you this amount of time so that you can fit it in with the rest of your life. We think that it's possible to build a good solution in about two evenings. This estimate assumes you will not re-implement what we have provided.  
 * Write your solution preferably in JavaScript, Typescript, Java, or Kotlin. If you are more comfortable in some other language, check with us first.
 * Deliver a runnable solution that includes only source code, test code, build scripts and instructions. Please no IDE or build artefacts.
 * Solutions can be server-side, client-side, or a combination of both.
-* Only use dependencies if you can defend what value they bring to the problem at hand
+* Only use dependencies if you can defend what value they bring to the problem at hand.
 * Tell us about any problems you had or assumptions you had to make to get the job done.
 * A working solution is better than a pretty solution
 
@@ -36,10 +36,9 @@ General Instructions
 
 Choose One of Three Tasks
 -------------------------
-Below are three assignments. Implement **ONLY ONE** of them. They can all be implemented as a pure backend or a pure frontend solution. Your
-approach will depend on the role you are applying for.
+Below are three assignments. Implement **ONLY ONE** of them. They can all be implemented as a pure backend or a pure frontend solution.
 
-You are not required to use the PouchDB database we provide if you are more comfortable with another approach/technology, or you don't feel it is necessary for the exercise.
+You are not required to use the PouchDB database we provide if you are more comfortable with another approach/technology. But be careful about spending too much time just re-implementing somethig we are providing.
 
 ### 1. The Search
 
@@ -47,13 +46,13 @@ Create a simple application (_web_ OR _command-line_ based) that will run a sear
 
 ### 2. The Visualization
 
-Create two data visualizations (Chart, graph, etc.) based on the provided data sets. Ideally these two visualizations should be complimentary and tell a story. If you extract supporting data into static files rather than when the main visualization program is executed, provide the script and/or method used to create that supporting data. 
+Create two data visualizations (Chart, graph, etc.) based on the provided data sets. Ideally these two visualizations should be complimentary and tell a story. If you extract supporting data into static files rather than fetch the data during execution, provide the script and/or method used to create that supporting data. 
 
 Take a look here if you need inspiration: https://fivethirtyeight.com/features/a-nerds-guide-to-the-2229-paintings-at-moma/
 
 ### 3. The Data Grid
 
-Access data from one or both files to produce a table with sorting, filtering, and paging. Ideally this table provides a good user experience and is responsive. Combine the two data sets into a master/detail view that allows navigating between the list of artists and the list of their artworks. 
+Access data from one or both files to produce a table with sorting, filtering, and paging. This table should provide a good user experience and be responsive. If you haev time, combine the two data sets into a master/detail view that allows navigating between the list of artists and the list of their artworks. 
 
 
 How We Evaluate
@@ -61,21 +60,22 @@ How We Evaluate
 
 Remember that even if you could solve most of the problems above with third party libraries and a few lines of code we are asking you to demonstrate your programming skills. This does not mean that you should build everything from scratch and write 1000s of lines of code. Here are some pointers on what we will pay attention to. 
 
-* We want to see how you approach software programming.
+* We want to see how you approach software programming... not just assembling libraries and frameworks
 * We want to see how you solve problems.
-* Performance: Considering the amount of time allotted we will not be too critical of performance issues. That said there should not be any rudimentary issues. If your solution works best with a sub-set of the data than make sure to provide scripts and instructions to set things up correctly.
+* Performance: Considering the amount of time allotted we will not be critical of performance issues. That said there should not be any rudimentary issues either. If your solution works best with a sub-set of the data than make sure to provide scripts and instructions to set things up correctly.
 * Some important things we will look at:
-    * Are we able to build and run the solution easily
-    * Are there any bugs
-    * How appropriate and complete the solution is compared to the task chosen.
-    * User experience (Where it applies)
+    * Are we able to build and run the solution easily and quickly?
+    * Are there any bugs?
+    * How appropriate and complete is the solution compared to the task you chose.
+    * User experience (Where/When it applies)
     * Code organisation, style, attention to readability, etc.
-    * Understanding of core and foundational technologies
-    * Idiomatic approach to the chosen language and/or technologies 
-    * Any supporting documentation, tests,
+    * Demonstrate that you understand the technologies you used.
+    * Idiomatic approach to the chosen language, libraries, frameworks, etc. 
+    * Any supporting documentation, tests, and scripts
+* If you decide to not use the db or any of stubbed out clients be careful about where your efforts go.  
 * We will likely use this coding assignment as a discussion piece in later parts of the interview process.
 
-Using PouchDb to Access Data
+Accessing the Data
 ------------------
 
 The database we have set you up with is an instance of [PouchDB](https://pouchdb.com/). It's a Javascript implementation of [Apache CouchDB](https://couchdb.apache.org/). So any CouchDb client should be able to connect to it.
@@ -93,8 +93,8 @@ Now we can start the system:
 ```shell
 npm start
 ```
-Start will unpack the zip file, start the server, and load the data. Note that there are ~15k artists and ~130k artworks getting loaded by
-default. It will also open the admin UI for PouchDB. There you can browse the documentation. For more details on accessing the data see the section below on PouchDb.
+Running `start` will unpack the zip file, start the server, and load the data. Note that there are ~15k artists and ~130k artworks getting loaded by
+default. It will also open the admin UI for PouchDB. There you can browse/search the data and find links to documentation. For more details on accessing the data see the section below on PouchDb.
 
 You can limit the amount of data loaded. For example running the command below (after having run `start`) will load the first 300 artists
 and only the artworks by those artists.
@@ -125,11 +125,9 @@ npm run start-db
 ### Client Access
 
 Although you don't really need a client here are some links.
-* [JavaScript](https://github.com/apache/couchdb-nano)
-* [Python](https://pycouchdb.readthedocs.io/en/latest/)
-* [IBM Cloudant Java Client](https://github.com/cloudant/java-cloudant) (Cloudant's API is a commercial offering from IBM with a compatible api). Cloudant also manages a set of clients which are all being re-written at the moment: https://blog.cloudant.com/2021/06/30/Cloudant-SDK-Transition.html#summary-of-sdk-changes 
-
-Take a look at the JS You can also take a look at `load.js` for a simple example. It's the little piece of code that loads the artist and artwork files. It employs the nano client. 
+* [Nano (JavaScript)](https://github.com/apache/couchdb-nano)
+* [pycouchdb (Python)](https://pycouchdb.readthedocs.io/en/latest/)
+* [IBM Cloudant (Java)](https://github.com/cloudant/java-cloudant) (Cloudant's API is a commercial offering from IBM with a compatible api). Cloudant also manages a set of clients which are all being re-written at the moment: https://blog.cloudant.com/2021/06/30/Cloudant-SDK-Transition.html#summary-of-sdk-changes 
 
 ### Using JSON over HTTP
 The CouchDB api for querying the store is based on a JSON-over-HTTP protocol. It is very well documented and easy to use without a  custom client. A good HTTP library may be all you really need. Note that the query language is a close relative of the MongoDB query language. Although there are other ways to query in PouchDB, this is probably the easiest approach.
@@ -195,3 +193,5 @@ npm ci
 npm start
 
 ```
+
+You can also take a look at `load.js` for more sample usage of the nano JS client. It's the little piece of code that creates a database and loads the artist and artwork datasets.
