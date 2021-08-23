@@ -6,9 +6,9 @@ This is coding assignment used in the recruitment process at MYARTBANK. It invol
 General Instructions
 --------------------
 
-* You have roughly 72 hours (3 days) to complete this challenge. We give you this amount of time so that you can fit it in with the rest of your life. We think that it's possible to build a good solution in about two evenings. This estimate assumes you will not re-implement what we have provided.  
+* You have roughly 72 hours (3 days) to complete this challenge. We give you this amount of time so that you can fit it in with the rest of your life. We think that it's possible to build a good solution in about two evenings. This estimate assumes you will not re-implement what we have provided.
 * Write your solution preferably in JavaScript, Typescript, Java, or Kotlin. If you are more comfortable in some other language, check with us first.
-* Deliver a runnable solution that includes only source code, test code, build scripts and instructions. Please no IDE or build artefacts.
+* Deliver a GitHub fork of our repository that contains a runnable solution including only source code, test code, build scripts and instructions. Please no IDE or build artefacts.
 * Solutions can be server-side, client-side, or a combination of both.
 * Only use dependencies if you can defend what value they bring to the problem at hand.
 * Tell us about any problems you had or assumptions you had to make to get the job done.
@@ -22,7 +22,7 @@ General Instructions
     * A `./db/load.js` to load the data into the provided database
     * A Kotlin starter client (in `./kotlin-client`) that connects to the provided database.
     * A Javascript starter client (in `./js-client`) that connects to the provided database.
-      
+
 #### To use the provided database & JS client
 * node 16
 * access to the internet
@@ -46,19 +46,19 @@ Create a simple application (_web_ OR _command-line_ based) that will run a sear
 
 ### 2. The Visualization
 
-Create two data visualizations (Chart, graph, etc.) based on the provided data sets. Ideally these two visualizations should be complimentary and tell a story. If you extract supporting data into static files rather than fetch the data during execution, provide the script and/or method used to create that supporting data. 
+Create two data visualizations (Chart, graph, etc.) based on the provided data sets. Ideally these two visualizations should be complimentary and tell a story. If you extract supporting data into static files rather than fetch the data during execution, provide the script and/or method used to create that supporting data.
 
 Take a look here if you need inspiration: https://fivethirtyeight.com/features/a-nerds-guide-to-the-2229-paintings-at-moma/
 
 ### 3. The Data Grid
 
-Access data from one or both files to produce a table with sorting, filtering, and paging. This table should provide a good user experience and be responsive. If you haev time, combine the two data sets into a master/detail view that allows navigating between the list of artists and the list of their artworks. 
+Access data from one or both files to produce a table with sorting, filtering, and paging. This table should provide a good user experience and be responsive. If you haev time, combine the two data sets into a master/detail view that allows navigating between the list of artists and the list of their artworks.
 
 
 How We Evaluate
 ---------------
 
-Remember that even if you could solve most of the problems above with third party libraries and a few lines of code we are asking you to demonstrate your programming skills. This does not mean that you should build everything from scratch and write 1000s of lines of code. Here are some pointers on what we will pay attention to. 
+Remember that even if you could solve most of the problems above with third party libraries and a few lines of code we are asking you to demonstrate your programming skills. This does not mean that you should build everything from scratch and write 1000s of lines of code. Here are some pointers on what we will pay attention to.
 
 * We want to see how you approach software programming... not just assembling libraries and frameworks
 * We want to see how you solve problems.
@@ -70,9 +70,9 @@ Remember that even if you could solve most of the problems above with third part
     * User experience (Where/When it applies)
     * Code organisation, style, attention to readability, etc.
     * Demonstrate that you understand the technologies you used.
-    * Idiomatic approach to the chosen language, libraries, frameworks, etc. 
+    * Idiomatic approach to the chosen language, libraries, frameworks, etc.
     * Any supporting documentation, tests, and scripts
-* If you decide to not use the db or any of stubbed out clients be careful about where your efforts go.  
+* If you decide to not use the db or any of stubbed out clients be careful about where your efforts go.
 * We will likely use this coding assignment as a discussion piece in later parts of the interview process.
 
 Accessing the Data
@@ -127,7 +127,7 @@ npm run start-db
 Although you don't really need a client here are some links.
 * [Nano (JavaScript)](https://github.com/apache/couchdb-nano)
 * [pycouchdb (Python)](https://pycouchdb.readthedocs.io/en/latest/)
-* [IBM Cloudant (Java)](https://github.com/cloudant/java-cloudant) (Cloudant's API is a commercial offering from IBM with a compatible api). Cloudant also manages a set of clients which are all being re-written at the moment: https://blog.cloudant.com/2021/06/30/Cloudant-SDK-Transition.html#summary-of-sdk-changes 
+* [IBM Cloudant (Java)](https://github.com/cloudant/java-cloudant) (Cloudant's API is a commercial offering from IBM with a compatible api). Cloudant also manages a set of clients which are all being re-written at the moment: https://blog.cloudant.com/2021/06/30/Cloudant-SDK-Transition.html#summary-of-sdk-changes
 
 ### Using JSON over HTTP
 The CouchDB api for querying the store is based on a JSON-over-HTTP protocol. It is very well documented and easy to use without a  custom client. A good HTTP library may be all you really need. Note that the query language is a close relative of the MongoDB query language. Although there are other ways to query in PouchDB, this is probably the easiest approach.
@@ -140,7 +140,7 @@ Furthermore, when using this approach everything is testable from the command li
 Let's start by accessing a document by id:
 ```shell
 curl -H "Accept: application/json" \
-http://localhost:5984/artists/1 
+http://localhost:5984/artists/1
 ```
 
 We need to create POSTs to execute queries:
@@ -149,14 +149,14 @@ curl -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -d '{"selector": {"DisplayName": {"$eq": "Pablo Picasso"}}}' \
-http://localhost:5984/artists/_find 
+http://localhost:5984/artists/_find
 ```
 
 Queries can get very complex and specific. Take a look at the documentation to find out everything that is supported:
 ```shell
 curl -X POST \
 -H "Accept: application/json" \
--H "Content-Type: application/json" \ 
+-H "Content-Type: application/json" \
 -d '{ "selector": { "$and": [ {"Title": {"$regex": ".*Peace.*"}}, {"Date": {"$in": ["1955", "1956"]}}, {"ConstituentID": {"$elemMatch": {"$eq": 4609}}} ] } }' \
 http://localhost:5984/artworks/_find
 ```
@@ -173,16 +173,16 @@ Here is the JSON document from above:
     }
 }
 ```
-     
+
 Using the demo clients
 -----------------------
 
 The simple kotlin and JavaScript client are provided. Start the database before running these clients.
-                     
+
 The Kotlin client:
 ```shell
 cd kotlin-client
-gradle app:run 
+gradle app:run
 
 ```
 
