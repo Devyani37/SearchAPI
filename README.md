@@ -1,7 +1,7 @@
 Recruitment Coding Assignment
 =============================
 
-This is coding assignment used in the recruitment process at MYARTBANK. It involves processing artist and artwork datasets.
+This is coding assignment used in the recruitment process at ARTBANX. It involves processing artist and artwork datasets.
 
 General Instructions
 --------------------
@@ -38,7 +38,8 @@ Choose One of Three Tasks
 -------------------------
 Below are three assignments. Implement **ONLY ONE** of them. They can all be implemented as a pure backend or a pure frontend solution.
 
-You are not required to use the PouchDB database we provide if you are more comfortable with another approach/technology. But be careful about spending too much time just re-implementing somethig we are providing.
+You are not required to use the PouchDB database we provide if you are more comfortable with another approach/technology. But be careful
+about spending too much time just re-implementing something we are providing.
 
 ### 1. The Search
 
@@ -52,7 +53,9 @@ Take a look here if you need inspiration: https://fivethirtyeight.com/features/a
 
 ### 3. The Data Grid
 
-Access data from one or both files to produce a table with sorting, filtering, and paging. This table should provide a good user experience and be responsive. If you haev time, combine the two data sets into a master/detail view that allows navigating between the list of artists and the list of their artworks.
+Access data from one or both files to produce a table with sorting, filtering, and paging. This table should provide a good user experience
+and be responsive. If you have time, combine the two data sets into a master/detail view that allows navigating between the list of artists
+and the list of their artworks.
 
 
 How We Evaluate
@@ -91,13 +94,11 @@ npm ci
 You only need to run this once.
 
 Now we can start the system:
-
 ```shell
 npm start
 ```
 
 If you are on Windows do the following:
-
 ```shell
 # in first command window
 npm run start-db-inline
@@ -121,29 +122,48 @@ the `artists` and `artworks`
 with a fresh copy of the source data.
 
 Use the following command to stop and remove the database:
+
 ```shell
 npm run destroy
 ```
+
+On Windows first stop the running server with `ctrl-c` then run:
+
+```shell
+npm run clean
+```
+
 This will stop the server and delete ALL temporary files (unpacked json files, database files).
 
 If you only want to stop the database then use the following command:
+
 ```shell
 npm run stop
-
 ```
 
+On Windows just use `ctrl-c` in the command window where the server is running
+
 When you are ready to restart the database you can do just that with:
+
 ```shell
 npm run start-db
+```
 
+On Windows:
+
+```shell
+npm run start-db-inline
 ```
 
 ### Client Access
 
 Although you don't really need a client here are some links.
+
 * [Nano (JavaScript)](https://github.com/apache/couchdb-nano)
 * [pycouchdb (Python)](https://pycouchdb.readthedocs.io/en/latest/)
-* [IBM Cloudant (Java)](https://github.com/cloudant/java-cloudant) (Cloudant's API is a commercial offering from IBM with a compatible api). Cloudant also manages a set of clients which are all being re-written at the moment: https://blog.cloudant.com/2021/06/30/Cloudant-SDK-Transition.html#summary-of-sdk-changes
+* [IBM Cloudant (Java)](https://github.com/cloudant/java-cloudant) (Cloudant's API is a commercial offering from IBM with a compatible api).
+  Cloudant also manages a set of clients which are all being re-written at the
+  moment: https://blog.cloudant.com/2021/06/30/Cloudant-SDK-Transition.html#summary-of-sdk-changes
 
 ### Using JSON over HTTP
 The CouchDB api for querying the store is based on a JSON-over-HTTP protocol. It is very well documented and easy to use without a  custom client. A good HTTP library may be all you really need. Note that the query language is a close relative of the MongoDB query language. Although there are other ways to query in PouchDB, this is probably the easiest approach.
