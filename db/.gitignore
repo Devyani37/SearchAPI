@@ -109,3 +109,5 @@ Artists.json
 Artworks.json
 
 *.iml
+config.json
+log.txt

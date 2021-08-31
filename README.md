@@ -87,21 +87,37 @@ To help you get going we have provided a light-weight approach to serving the da
 cd db
 npm ci
 ```
+
 You only need to run this once.
 
 Now we can start the system:
+
 ```shell
 npm start
 ```
-Running `start` will unpack the zip file, start the server, and load the data. Note that there are ~15k artists and ~130k artworks getting loaded by
-default. It will also open the admin UI for PouchDB. There you can browse/search the data and find links to documentation. For more details on accessing the data see the section below on PouchDb.
+
+If you are on Windows do the following:
+
+```shell
+# in first command window
+npm run start-db-inline
+# in second command window
+npm run deploy-data
+```
+
+Running `start` will unpack the zip file, start the server, and load the data. Note that there are ~15k artists and ~130k artworks getting
+loaded by default. It will also open the admin UI for PouchDB. There you can browse/search the data and find links to documentation. For
+more details on accessing the data see the section below on PouchDb.
 
 You can limit the amount of data loaded. For example running the command below (after having run `start`) will load the first 300 artists
 and only the artworks by those artists.
+
 ```shell
 npm run load-data -- --max-artists=300
 ```
-You can run this command without restarting the database process. But note that `load-data` will remove and replace any data in the `artists` and `artworks`
+
+You can run this command without restarting the database process. But note that `load-data` will remove and replace any data in
+the `artists` and `artworks`
 with a fresh copy of the source data.
 
 Use the following command to stop and remove the database:
