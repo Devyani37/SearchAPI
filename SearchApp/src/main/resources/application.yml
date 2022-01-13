@@ -1,0 +1,19 @@
+server:
+  port: 8080
+
+logging:
+  level:
+    root: ERROR
+    org.springframework: ERROR
+    com.devyani.searchApp: DEBUG
+  pattern:
+    console: "%d %-5level %logger : %msg%n"
+
+rest-template-config:
+  timeout: 60000
+
+
+pouch-db:
+  host: "http://localhost:5984"
+  artistdb: "artists"
+  artworkdb: "artworks"
